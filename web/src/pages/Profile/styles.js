@@ -1,5 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
+
+export const rotate = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -112,4 +122,16 @@ export const IncidentList = styled.ul`
       font-size: 16px;
     }
   }
+`;
+
+export const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+      animation: ${rotate} 2s linear infinite;
+      margin-right: 10px;
+    }
 `;

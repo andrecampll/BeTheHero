@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
 
-import { Container, Button, IncidentList } from './styles';
+import { Container, Button, IncidentList, Loading } from './styles';
 
 import logoImg from '../../assets/logo.svg';
 
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const history = useHistory();
 
@@ -23,6 +25,7 @@ export default function Profile() {
       }
     }).then(response => {
       setIncidents(response.data);
+      setLoading(false);
     })
   }, [ongId]);
 
@@ -45,6 +48,15 @@ export default function Profile() {
 
     history.push('/');
   }
+  
+  if(loading) {
+    return (
+      <Loading>
+        <FaSpinner color="#E02041" size={20}/>
+        <h1>Carregando</h1>
+      </Loading >
+    );
+  }
 
   return (
     <Container className="profile-container">
@@ -64,7 +76,7 @@ export default function Profile() {
 
       <h1>Casos Cadastrados</h1>
 
-      <IncidentList>
+      <IncidentList >
         {incidents.map(incident => (
           <li Key={incident.id}>
             <strong>CASO</strong>
