@@ -37,7 +37,14 @@ export const Container = styled.div`
       margin-top: 0;
     }
 
-    a + button {
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    div > button {
       height: 60px;
       width: 60px;
       border-radius: 4px;

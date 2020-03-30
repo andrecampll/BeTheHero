@@ -15,6 +15,7 @@ import {
   DetailsButtonText,
   IncidentValue,
   FlatListIncidents,
+  IncidentContext,
 } from './styles';
 import api from '../../services/api';
 import Logo from '../../assets/logo.png';
@@ -46,7 +47,7 @@ export default function Incidents() {
 
     const response = await api.get('incidents');
 
-    setIncidents([...incidents, ...response]);
+    setIncidents([...incidents, ...response.data]);
     setTotal(response.headers['x-total-count']);
     setPage(page + 1);
     setLoading(false);
@@ -71,28 +72,30 @@ export default function Incidents() {
       <FlatListIncidents
         data={incidents}
         keyExtractor={incident => String(incident.id)}
-        onEndReached={loadIncidents}
-        onEndReachedThreshold={0.2}
+        // onEndReached={loadIncidents}
+        // onEndReachedThreshold={0.2}
         renderItem={({item: incident}) => (
           <IncidentList>
             <Incident>
-              <IncidentProperty>ONG:</IncidentProperty>
-              <IncidentValue>{incident.name}</IncidentValue>
+              <IncidentContext>
+                <IncidentProperty>ONG:</IncidentProperty>
+                <IncidentValue>{incident.name}</IncidentValue>
 
-              <IncidentProperty>CASO:</IncidentProperty>
-              <IncidentValue>{incident.title}</IncidentValue>
+                <IncidentProperty>CASO:</IncidentProperty>
+                <IncidentValue>{incident.title}</IncidentValue>
 
-              <IncidentProperty>VALOR:</IncidentProperty>
-              <IncidentValue>
-                {Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(incident.value)}
-              </IncidentValue>
+                <IncidentProperty>VALOR:</IncidentProperty>
+                <IncidentValue>
+                  {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  }).format(incident.value)}
+                </IncidentValue>
+              </IncidentContext>
 
               <DetailsButton onPress={() => navigateToDetail(incident)}>
                 <DetailsButtonText>Ver mais detalhes</DetailsButtonText>
-                <Icon name="arrow-forward" size={16} color="#E02041" />
+                <Icon name="arrow-forward" size={16} color="#FFF" />
               </DetailsButton>
             </Incident>
           </IncidentList>

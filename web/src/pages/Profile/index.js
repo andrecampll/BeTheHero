@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { FaSpinner } from 'react-icons/fa';
-
 import api from '../../services/api';
 
 import { Container, Button, IncidentList, Loading } from './styles';
@@ -12,7 +11,7 @@ import logoImg from '../../assets/logo.svg';
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   const history = useHistory();
 
   const ongId = localStorage.getItem('ongId');
@@ -68,10 +67,11 @@ export default function Profile() {
             Cadastrar novo caso
           </Button>
         </Link>
-
-        <button type="button" onClick={handleLogout}>
-          <FiPower size={18} color="#E02041" />
-        </button>
+        <div>
+          <button type="button" onClick={handleLogout}>
+            <FiPower size={18} color="#E02041" />
+          </button>
+        </div>
       </header>
 
       <h1>Casos Cadastrados</h1>

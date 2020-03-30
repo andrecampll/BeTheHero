@@ -38,11 +38,14 @@ export const IncidentList = styled.View`
   margin-top: 32px;
 `;
 export const Incident = styled.View`
-  padding: 24px;
   border-radius: 8px;
   background-color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 `;
+export const IncidentContext = styled.View`
+  padding: 24px;
+`;
+
 export const IncidentProperty = styled.Text`
   font-size: 14px;
   color: #41414d;
@@ -60,9 +63,15 @@ export const DetailsButton = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #e02041;
+  flex: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  height: 55px;
+  padding: 24px;
 `;
 export const DetailsButtonText = styled.Text`
-  color: #e02041;
+  color: #fff;
   font-size: 15px;
   font-weight: bold;
 `;
