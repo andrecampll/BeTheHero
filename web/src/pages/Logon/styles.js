@@ -50,3 +50,9 @@ export const Button = styled.button`
     background: ${darken(0.07, '#E02041')};
   }
 `;
+
+export const Form = styled.form`
+  background-color: ${props => props.theme.colors.content};
+  padding: 20px;
+  border-radius: 8px;
+`;

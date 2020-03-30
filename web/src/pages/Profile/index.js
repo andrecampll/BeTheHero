@@ -11,6 +11,7 @@ import logoImg from '../../assets/logo.svg';
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isEmpty, setisEmpty] = useState(false);
   
   const history = useHistory();
 
@@ -25,8 +26,13 @@ export default function Profile() {
     }).then(response => {
       setIncidents(response.data);
       setLoading(false);
+      if (incidents === null || incidents.length === 0) {
+        setisEmpty(true);
+      } else {
+        setisEmpty(false);
+      }
     })
-  }, [ongId]);
+  }, [incidents, ongId]);
 
   async function handleDeleteIncident(id) {
     try {
@@ -77,25 +83,31 @@ export default function Profile() {
       <h1>Casos Cadastrados</h1>
 
       <IncidentList >
-        {incidents.map(incident => (
-          <li Key={incident.id}>
-            <strong>CASO</strong>
-            <p>{incident.title}</p>
+        { isEmpty ? 
+        (<h1>Não há casos cadastrados :(</h1>)
+        :
+        (
+          incidents.map(incident => (
+            <li Key={incident.id}>
+              <strong>CASO</strong>
+              <p>{incident.title}</p>
 
-            <strong>DESCRIÇÃO</strong>
-            <p>{incident.description}</p>
+              <strong>DESCRIÇÃO</strong>
+              <p>{incident.description}</p>
 
-            <strong>VALOR:</strong>
-            <p>{Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL' 
-            }).format(incident.value)
-            }</p>
-            <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-              <FiTrash2 size={20} color="#A8A8B3" />
-            </button> 
-          </li>
-        ))}
+              <strong>VALOR:</strong>
+              <p>{Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL' 
+              }).format(incident.value)
+              }</p>
+              <button onClick={() => handleDeleteIncident(incident.id)} type="button">
+                <FiTrash2 size={20} color="#A8A8B3" />
+              </button> 
+            </li>
+          ))
+        )
+      }
       </IncidentList>
     </Container>
   );

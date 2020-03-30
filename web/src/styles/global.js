@@ -24,31 +24,37 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  h1 {
+    color: ${props => props.theme.colors.text};
+  }
+
   form input {
     width: 100%;
     height: 60px;
-    color: #000;
-    border: 1px solid #DCDCE6;
+    color: ${props => props.theme.colors.inputText};
+    border: 1px solid ${props => props.theme.colors.input};
     border-radius: 8px;
     padding: 0 24px;
+    background: ${props => props.theme.colors.input};
   }
 
   form textarea {
     width: 100%;
     min-height: 140px;
-    color: #000;
-    border: 1px solid #DCDCE6;
+    color: ${props => props.theme.colors.inputText};
+    border: 1px solid ${props => props.theme.colors.input};
     border-radius: 8px;
     padding: 16px 24px;
     line-height: 24px;
     resize: vertical;
+    background: ${props => props.theme.colors.input};
   }
 
   a {
     display: flex;
     align-items: center;
     margin-top: 40px;
-    color: #41414D;
+    color: ${props => props.theme.colors.text};
     font-size: 18px;
     text-decoration: none;
     font-weight: bold;

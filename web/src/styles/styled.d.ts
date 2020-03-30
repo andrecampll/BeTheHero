@@ -6,9 +6,14 @@ declare module 'styled-components' {
     
       colors: {
         primary: string;
-    
+        
         background: string;
+        content: string;
         text: string;
+        spanText: string;
+        incidentColor: string,
+        input: string,
+        inputText: string,
     };
   }
 }

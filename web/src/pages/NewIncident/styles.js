@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding: 96px;
-  background: #F0F0F5;
+  background: ${props => props.theme.colors.content};
   box-shadow: 0 0 100px rgba(0,0,0,0.1);
   border-radius: 8px;
 

@@ -25,6 +25,7 @@ export const Container = styled.div`
       font-size: 20px;
       margin-left: 24px;
       font-weight: bold;
+      color: ${props => props.theme.colors.spanText};
     }
 
     img {
@@ -48,8 +49,8 @@ export const Container = styled.div`
       height: 60px;
       width: 60px;
       border-radius: 4px;
-      border: 1px solid #DCDCDC;
-      background: transparent;
+      border: 1px solid ${props => props.theme.colors.input};
+      background: ${props => props.theme.colors.content};
       margin-left: 16px;
       margin-top: 15px;
       transition: border-color 0.2s;
@@ -82,8 +83,6 @@ export const Button = styled.button`
   line-height: 60px;
   transition: background 0.2s;
 
-  
-
   &:hover {
     background: ${darken(0.07, '#E02041')};
   }
@@ -96,7 +95,7 @@ export const IncidentList = styled.ul`
   list-style: none;
 
   li {
-    background: #FFF;
+    background: ${props => props.theme.colors.incidentColor};
     padding: 24px;
     border-radius: 8px;
     position: relative;
@@ -116,7 +115,7 @@ export const IncidentList = styled.ul`
     strong {
       display: block;
       margin-bottom: 16px;
-      color: #41414D;
+      color: ${props => props.theme.colors.text};
     }
 
     p + strong {

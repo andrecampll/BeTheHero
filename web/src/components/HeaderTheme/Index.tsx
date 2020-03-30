@@ -12,6 +12,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   
   return (
     <Container>
+      <h1>Developed with ❤ by <a target='blank' href="http://github.com/andrecampll">andrecampll</a> </h1>
       <Switch
         onChange={toggleTheme}
         checked={title === 'dark'}
@@ -20,8 +21,8 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
         height={10}
         width={40}
         handleDiameter={20}
-        offColor="#E02041"
-        onColor="#000"
+        offColor="#ccc"
+        onColor="#333"
       />
     </Container>
   );
