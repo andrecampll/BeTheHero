@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
   padding: 0 24px;
   padding-top: 20px;
+  background-color: ${props => props.theme.colors.background};
 `;
 export const Header = styled.View`
   flex-direction: row;
@@ -22,13 +23,13 @@ export const HeaderTextBold = styled.Text`
 export const Incident = styled.View`
   padding: 24px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.incidentColor};
   margin-bottom: 16px;
   margin-top: 48px;
 `;
 export const IncidentProperty = styled.Text`
   font-size: 14px;
-  color: #41414d;
+  color: ${props => props.theme.colors.text};
   font-weight: bold;
 `;
 
@@ -42,13 +43,13 @@ export const IncidentValue = styled.Text`
 export const ContactBox = styled.View`
   padding: 24px;
   border-radius: 8px;
-  background-color: #fff;
-  margin-bottom: 16px;
+  background-color: ${props => props.theme.colors.incidentColor};
+  margin-bottom: 50px;
 `;
 export const AngelTitle = styled.Text`
   font-weight: bold;
   font-size: 20px;
-  color: #13131a;
+  color: ${props => props.theme.colors.titleText};
   line-height: 30px;
 `;
 export const AngelDescription = styled.Text`

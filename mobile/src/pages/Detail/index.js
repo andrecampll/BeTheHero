@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {TouchableOpacity, Linking} from 'react-native';
+import {TouchableOpacity, Linking, Dimensions} from 'react-native';
 import Logo from '../../assets/logo.png';
 
 import {
@@ -21,7 +21,11 @@ import * as MailComposer from 'expo-mail-composer';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+const {height} = Dimensions.get('window');
+
 export default function Detail() {
+  const [screenHeight, setScreenHeight] = useState(0);
+
   const navigation = useNavigation();
   const route = useRoute();
 
@@ -53,8 +57,15 @@ export default function Detail() {
     );
   }
 
+  function onContentSizeChange(contentWidth, contentHeight) {
+    setScreenHeight(contentHeight);
+  }
+
+  const scrollEnabled = screenHeight > height;
   return (
-    <Container>
+    <Container
+      onContentSizeChange={onContentSizeChange}
+      scrollEnabled={scrollEnabled}>
       <Header>
         <LogoImg source={Logo} />
 
@@ -71,6 +82,9 @@ export default function Detail() {
 
         <IncidentProperty>CASO:</IncidentProperty>
         <IncidentValue>{incident.title}</IncidentValue>
+
+        <IncidentProperty>DETALHES:</IncidentProperty>
+        <IncidentValue>{incident.description}</IncidentValue>
 
         <IncidentProperty>VALOR:</IncidentProperty>
         <IncidentValue>

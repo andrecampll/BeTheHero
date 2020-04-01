@@ -4,6 +4,7 @@ export const Container = styled.View`
   flex: 1;
   padding: 0 24px;
   padding-top: 20px;
+  background-color: ${props => props.theme.colors.background};
 `;
 
 export const Header = styled.View`
@@ -24,7 +25,7 @@ export const Title = styled.Text`
   font-size: 30px;
   margin-bottom: 16px;
   margin-top: 48px;
-  color: #13131a;
+  color: ${props => props.theme.colors.inputText};
   font-family: Roboto;
   font-weight: 500;
 `;
@@ -39,7 +40,7 @@ export const IncidentList = styled.View`
 `;
 export const Incident = styled.View`
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.incidentColor};
   margin-bottom: 10px;
 `;
 export const IncidentContext = styled.View`
@@ -48,7 +49,7 @@ export const IncidentContext = styled.View`
 
 export const IncidentProperty = styled.Text`
   font-size: 14px;
-  color: #41414d;
+  color: ${props => props.theme.colors.text};
   font-weight: bold;
 `;
 
