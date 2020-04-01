@@ -3,7 +3,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test jest",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
