@@ -3,6 +3,7 @@ Este repositório é referente ao projeto desenvolvido durante a semana Omnistac
 
 # Proposta
 Esta iniciativa tem o objetivo de criar uma plataforma para conectar pessoas a ONGs/Causas sociais, para que essas mesmas pessoas ajudem financeiramente as ONGs, salvando o dia!
+O diferencial dessa aplicação é o tema escuro, o qual desenvolvi a fim de estudar os contextos do React, utilizando typescript para tal.
 
 # Tecnologias Utilizadas
 React ⚛️ <br />
